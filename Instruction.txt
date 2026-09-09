@@ -1,0 +1,15 @@
+I need to create a website, the site must be responsive and interactive. This website aims to allow user to snap a photo and
+  upload, then there should be an AI engine to identify the plant type, evaluate the issue of the plant - e.g. when a photo of leave
+  is uploaded, investigate the sickness and treatment
+
+ I need to hook this up with a hardware built using Arduino ESP32-CAM, basically this device shall perform a check within the farm
+  deployed twice a day and identify which plant sick and then suggest the treatment
+
+
+ok nice, now I need a dashboard to display to list the date/time, plant name, issue summary, issue category (e.g. 真菌感染, 日灼,
+  缺少元素，缺水 etc), severity, possibility of recovery. Assuming that we have a physical unit that consist of camera and will scan
+  through all the plants within the farm, the unit will send over the photo of each plant. Then the system shall evaluates each
+  photo and decided if the plant is healthy or mark the plant to the dashboard if there is illness detected, there should be also a
+  unit number e.g. R1C4 for plant in Row1 and Count4. For now I have yet to hook up the device, just prepare for me the dashboard
+  that would show the list. The dashboard should also list down how many plants scan (e.g. 1000 plants), start date (e.g. 2-Sep-2026
+  11am) and then end date (assuming taking 30 mins to scan all plants).

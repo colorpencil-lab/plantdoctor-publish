@@ -1,0 +1,42 @@
+[
+  {
+    "id": "camellia-leaf-spot",
+    "image": "/demo/camellia-leaf-spot.jpg",
+    "label": {
+      "en": "Camellia",
+      "zh": "山茶花"
+    }
+  },
+  {
+    "id": "durian-leaf-blight",
+    "image": "/demo/durian-leaf-blight.jpg",
+    "label": {
+      "en": "Durian",
+      "zh": "榴莲"
+    }
+  },
+  {
+    "id": "powdery-mildew",
+    "image": "/demo/powdery-mildew.jpg",
+    "label": {
+      "en": "Euonymus / Spindle Shrub",
+      "zh": "卫矛 (或常见观叶植物)"
+    }
+  },
+  {
+    "id": "hydrangea-leaf-spot",
+    "image": "/demo/hydrangea-leaf-spot.jpg",
+    "label": {
+      "en": "Bigleaf Hydrangea",
+      "zh": "大叶绣球"
+    }
+  },
+  {
+    "id": "durian-leaf-scorch",
+    "image": "/demo/durian-leaf-scorch.jpg",
+    "label": {
+      "en": "Durian",
+      "zh": "榴莲"
+    }
+  }
+]

@@ -1,0 +1,411 @@
+{
+  "id": "scan-2026-09-02",
+  "startedAt": "2026-09-02T11:00:00",
+  "finishedAt": "2026-09-02T11:30:00",
+  "plantsScanned": 1000,
+  "plantsHealthy": 981,
+  "plantsFlagged": 19,
+  "rows": 40,
+  "cols": 25,
+  "checks": [
+    {
+      "unit": "R2C17",
+      "row": 2,
+      "col": 17,
+      "checkedAt": "2026-09-02T11:01:13",
+      "plant": {
+        "en": "Tomato",
+        "zh": "番茄"
+      },
+      "issueTitle": {
+        "en": "Early blight (Alternaria)",
+        "zh": "早疫病（链格孢菌）"
+      },
+      "issueSummary": {
+        "en": "Target-pattern brown spots on the lower leaves, spreading upward.",
+        "zh": "下部叶片出现同心轮纹褐斑，并逐渐向上蔓延。"
+      },
+      "category": "fungal",
+      "severity": "high",
+      "recovery": "uncertain"
+    },
+    {
+      "unit": "R4C3",
+      "row": 4,
+      "col": 3,
+      "checkedAt": "2026-09-02T11:02:18",
+      "plant": {
+        "en": "Rose",
+        "zh": "月季"
+      },
+      "issueTitle": {
+        "en": "Black spot (Diplocarpon rosae)",
+        "zh": "黑斑病（蔷薇双壳菌）"
+      },
+      "issueSummary": {
+        "en": "Black lesions with feathery edges and yellowing around them.",
+        "zh": "叶片有边缘呈羽状的黑色病斑，周围组织发黄。"
+      },
+      "category": "fungal",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R6C22",
+      "row": 6,
+      "col": 22,
+      "checkedAt": "2026-09-02T11:04:22",
+      "plant": {
+        "en": "Cucumber",
+        "zh": "黄瓜"
+      },
+      "issueTitle": {
+        "en": "Powdery mildew",
+        "zh": "白粉病"
+      },
+      "issueSummary": {
+        "en": "White powdery film across the upper leaf surface.",
+        "zh": "叶片正面覆有一层白色粉状霉层。"
+      },
+      "category": "fungal",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R8C11",
+      "row": 8,
+      "col": 11,
+      "checkedAt": "2026-09-02T11:05:33",
+      "plant": {
+        "en": "Chili pepper",
+        "zh": "辣椒"
+      },
+      "issueTitle": {
+        "en": "Bacterial leaf spot",
+        "zh": "细菌性叶斑病"
+      },
+      "issueSummary": {
+        "en": "Water-soaked spots turning brown with a yellow halo; some leaf drop.",
+        "zh": "水渍状斑点转褐并带黄晕，部分叶片脱落。"
+      },
+      "category": "bacterial",
+      "severity": "high",
+      "recovery": "unlikely"
+    },
+    {
+      "unit": "R11C6",
+      "row": 11,
+      "col": 6,
+      "checkedAt": "2026-09-02T11:07:39",
+      "plant": {
+        "en": "Papaya",
+        "zh": "木瓜"
+      },
+      "issueTitle": {
+        "en": "Papaya ringspot virus",
+        "zh": "番木瓜环斑病毒"
+      },
+      "issueSummary": {
+        "en": "Mosaic mottling on leaves and oily ring marks on the stem.",
+        "zh": "叶片花叶斑驳，茎部有油渍状环纹。"
+      },
+      "category": "viral",
+      "severity": "high",
+      "recovery": "unlikely"
+    },
+    {
+      "unit": "R13C24",
+      "row": 13,
+      "col": 24,
+      "checkedAt": "2026-09-02T11:09:41",
+      "plant": {
+        "en": "Eggplant",
+        "zh": "茄子"
+      },
+      "issueTitle": {
+        "en": "Two-spotted spider mite",
+        "zh": "二斑叶螨"
+      },
+      "issueSummary": {
+        "en": "Fine stippling and faint webbing on the undersides of leaves.",
+        "zh": "叶背有细密失绿斑点和少量丝网。"
+      },
+      "category": "pest",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R16C2",
+      "row": 16,
+      "col": 2,
+      "checkedAt": "2026-09-02T11:11:16",
+      "plant": {
+        "en": "Cabbage",
+        "zh": "甘蓝"
+      },
+      "issueTitle": {
+        "en": "Aphid infestation",
+        "zh": "蚜虫为害"
+      },
+      "issueSummary": {
+        "en": "Colonies on new growth with sticky honeydew and some curling.",
+        "zh": "新梢聚集大量蚜虫，有黏腻蜜露，叶片轻微卷曲。"
+      },
+      "category": "pest",
+      "severity": "low",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R18C19",
+      "row": 18,
+      "col": 19,
+      "checkedAt": "2026-09-02T11:13:17",
+      "plant": {
+        "en": "Citrus",
+        "zh": "柑橘"
+      },
+      "issueTitle": {
+        "en": "Magnesium deficiency",
+        "zh": "缺镁"
+      },
+      "issueSummary": {
+        "en": "Interveinal yellowing on older leaves in an inverted-V pattern.",
+        "zh": "老叶脉间黄化，呈倒 V 形。"
+      },
+      "category": "nutrient",
+      "severity": "low",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R20C9",
+      "row": 20,
+      "col": 9,
+      "checkedAt": "2026-09-02T11:14:29",
+      "plant": {
+        "en": "Sweet corn",
+        "zh": "甜玉米"
+      },
+      "issueTitle": {
+        "en": "Nitrogen deficiency",
+        "zh": "缺氮"
+      },
+      "issueSummary": {
+        "en": "Pale lower leaves yellowing from the tip along the midrib.",
+        "zh": "下部叶片发黄，自叶尖沿主脉向内扩展。"
+      },
+      "category": "nutrient",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R23C14",
+      "row": 23,
+      "col": 14,
+      "checkedAt": "2026-09-02T11:16:53",
+      "plant": {
+        "en": "Lettuce",
+        "zh": "生菜"
+      },
+      "issueTitle": {
+        "en": "Water stress",
+        "zh": "缺水"
+      },
+      "issueSummary": {
+        "en": "Whole plant wilting at midday with dry, crisping leaf margins.",
+        "zh": "正午整株萎蔫，叶缘干枯发脆。"
+      },
+      "category": "water_stress",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R25C25",
+      "row": 25,
+      "col": 25,
+      "checkedAt": "2026-09-02T11:18:43",
+      "plant": {
+        "en": "Sweet pepper",
+        "zh": "甜椒"
+      },
+      "issueTitle": {
+        "en": "Leaf scorch (sun)",
+        "zh": "日灼"
+      },
+      "issueSummary": {
+        "en": "Bleached, papery patches on leaves and fruit facing the sun.",
+        "zh": "朝阳面的叶片和果实出现漂白、纸质化的斑块。"
+      },
+      "category": "sunscald",
+      "severity": "low",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R27C5",
+      "row": 27,
+      "col": 5,
+      "checkedAt": "2026-09-02T11:19:37",
+      "plant": {
+        "en": "Basil",
+        "zh": "罗勒"
+      },
+      "issueTitle": {
+        "en": "Cold damage",
+        "zh": "冷害"
+      },
+      "issueSummary": {
+        "en": "Dark, water-soaked blotches after a cold night; leaves collapsing.",
+        "zh": "经历寒夜后出现深色水渍状斑块，叶片萎垂。"
+      },
+      "category": "cold",
+      "severity": "medium",
+      "recovery": "uncertain"
+    },
+    {
+      "unit": "R29C16",
+      "row": 29,
+      "col": 16,
+      "checkedAt": "2026-09-02T11:21:27",
+      "plant": {
+        "en": "Spinach",
+        "zh": "菠菜"
+      },
+      "issueTitle": {
+        "en": "Downy mildew",
+        "zh": "霜霉病"
+      },
+      "issueSummary": {
+        "en": "Yellow blotches on top, grey-purple fuzz on the underside.",
+        "zh": "叶面黄斑，叶背有灰紫色霉层。"
+      },
+      "category": "fungal",
+      "severity": "high",
+      "recovery": "unlikely"
+    },
+    {
+      "unit": "R31C8",
+      "row": 31,
+      "col": 8,
+      "checkedAt": "2026-09-02T11:22:42",
+      "plant": {
+        "en": "Strawberry",
+        "zh": "草莓"
+      },
+      "issueTitle": {
+        "en": "Leaf spot (Mycosphaerella)",
+        "zh": "叶斑病（球腔菌）"
+      },
+      "issueSummary": {
+        "en": "Small purple spots with pale centres scattered over the leaves.",
+        "zh": "叶片散布中心灰白、外缘紫色的小斑点。"
+      },
+      "category": "fungal",
+      "severity": "low",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R33C21",
+      "row": 33,
+      "col": 21,
+      "checkedAt": "2026-09-02T11:24:36",
+      "plant": {
+        "en": "Tomato",
+        "zh": "番茄"
+      },
+      "issueTitle": {
+        "en": "Early blight (Alternaria)",
+        "zh": "早疫病（链格孢菌）"
+      },
+      "issueSummary": {
+        "en": "Target-pattern brown spots on the lower leaves, spreading upward.",
+        "zh": "下部叶片出现同心轮纹褐斑，并逐渐向上蔓延。"
+      },
+      "category": "fungal",
+      "severity": "high",
+      "recovery": "uncertain"
+    },
+    {
+      "unit": "R35C12",
+      "row": 35,
+      "col": 12,
+      "checkedAt": "2026-09-02T11:25:49",
+      "plant": {
+        "en": "Rose",
+        "zh": "月季"
+      },
+      "issueTitle": {
+        "en": "Black spot (Diplocarpon rosae)",
+        "zh": "黑斑病（蔷薇双壳菌）"
+      },
+      "issueSummary": {
+        "en": "Black lesions with feathery edges and yellowing around them.",
+        "zh": "叶片有边缘呈羽状的黑色病斑，周围组织发黄。"
+      },
+      "category": "fungal",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R37C1",
+      "row": 37,
+      "col": 1,
+      "checkedAt": "2026-09-02T11:27:00",
+      "plant": {
+        "en": "Cucumber",
+        "zh": "黄瓜"
+      },
+      "issueTitle": {
+        "en": "Powdery mildew",
+        "zh": "白粉病"
+      },
+      "issueSummary": {
+        "en": "White powdery film across the upper leaf surface.",
+        "zh": "叶片正面覆有一层白色粉状霉层。"
+      },
+      "category": "fungal",
+      "severity": "medium",
+      "recovery": "likely"
+    },
+    {
+      "unit": "R38C23",
+      "row": 38,
+      "col": 23,
+      "checkedAt": "2026-09-02T11:28:24",
+      "plant": {
+        "en": "Chili pepper",
+        "zh": "辣椒"
+      },
+      "issueTitle": {
+        "en": "Bacterial leaf spot",
+        "zh": "细菌性叶斑病"
+      },
+      "issueSummary": {
+        "en": "Water-soaked spots turning brown with a yellow halo; some leaf drop.",
+        "zh": "水渍状斑点转褐并带黄晕，部分叶片脱落。"
+      },
+      "category": "bacterial",
+      "severity": "high",
+      "recovery": "unlikely"
+    },
+    {
+      "unit": "R40C10",
+      "row": 40,
+      "col": 10,
+      "checkedAt": "2026-09-02T11:29:31",
+      "plant": {
+        "en": "Papaya",
+        "zh": "木瓜"
+      },
+      "issueTitle": {
+        "en": "Papaya ringspot virus",
+        "zh": "番木瓜环斑病毒"
+      },
+      "issueSummary": {
+        "en": "Mosaic mottling on leaves and oily ring marks on the stem.",
+        "zh": "叶片花叶斑驳，茎部有油渍状环纹。"
+      },
+      "category": "viral",
+      "severity": "high",
+      "recovery": "unlikely"
+    }
+  ]
+}

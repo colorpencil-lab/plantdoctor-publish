@@ -1,0 +1,596 @@
+{
+  "camellia-leaf-spot": {
+    "en": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "Camellia",
+        "scientificName": "Camellia japonica",
+        "confidence": "high",
+        "notes": "Recognizable by its thick, dark green, glossy, finely serrated leathery leaves and woody stems."
+      },
+      "health": {
+        "status": "minor_issues",
+        "summary": "The plant shows noticeable dark brown blotches on the foliage, which are consistent with fungal leaf spot (such as anthracnose) or leaf sunburn.",
+        "recovery": "likely"
+      },
+      "issues": [
+        {
+          "name": "Fungal Leaf Spot (Anthracnose / Glomerella)",
+          "type": "disease",
+          "severity": "medium",
+          "confidence": "medium",
+          "description": "Fungal infections produce dark, expanding necrotic lesions on the leaf surface, often aggravated by high moisture or stagnant air.",
+          "evidence": "Irregular dark brown and purplish-brown blotches with subtle lighter halos on the leaf blades."
+        },
+        {
+          "name": "Leaf Scorch / Sunburn",
+          "type": "environmental",
+          "severity": "low",
+          "confidence": "medium",
+          "description": "Intense direct sunlight or high heat can scorch sensitive foliage, creating dry, brown patches.",
+          "evidence": "Large, dried brown spots focused on the upper foliage exposed to light."
+        }
+      ],
+      "treatment": [
+        {
+          "title": "Prune damaged foliage",
+          "detail": "Carefully trim off heavily affected leaves using clean, sanitized pruning shears. Dispose of infected leaves in the trash, not compost.",
+          "urgency": "now"
+        },
+        {
+          "title": "Adjust environment and watering",
+          "detail": "Move the plant to a location with bright, indirect light or morning sun only. Water at the base of the plant to keep foliage dry.",
+          "urgency": "soon"
+        },
+        {
+          "title": "Apply copper fungicide (Last Resort)",
+          "detail": "If leaf spots continue to spread to new foliage, apply a copper-based liquid fungicide according to package instructions.",
+          "urgency": "ongoing"
+        }
+      ],
+      "prevention": [
+        "Water at the base of the plant to avoid damp foliage.",
+        "Ensure good air circulation around the canopy by pruning overcrowded branches.",
+        "Protect the plant from harsh, direct afternoon sunlight.",
+        "Promptly clear away fallen leaves and debris from around the base."
+      ],
+      "care": {
+        "light": "Part shade to filtered sunlight; avoid strong afternoon sun.",
+        "water": "Keep soil evenly moist but not waterlogged. Water deeply when the top inch of soil feels dry.",
+        "soil": "Rich, acidic (pH 5.5 to 6.5), well-draining soil.",
+        "humidity": "Prefers moderate to high humidity.",
+        "temperature": "Thrives in cooler to mild temperatures between 50°F and 70°F (10°C to 21°C)."
+      },
+      "disclaimer": "This is an automated visual estimate and should not replace an in-person assessment by a local plant specialist."
+    },
+    "zh": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "山茶花",
+        "scientificName": "Camellia japonica",
+        "confidence": "medium",
+        "notes": "叶片呈现革质、深绿色且边缘有细锯齿，枝条与芽的形态符合山茶属植物的典型特征。"
+      },
+      "health": {
+        "status": "minor_issues",
+        "summary": "植株叶片出现大面积红褐色坏死斑块，主要是由于强光暴晒导致的日灼损伤，可能伴有轻微的真菌继发感染。",
+        "recovery": "likely"
+      },
+      "issues": [
+        {
+          "name": "日灼（阳光灼伤）",
+          "type": "environmental",
+          "severity": "medium",
+          "confidence": "high",
+          "description": "山茶花属于半阴性植物，不耐强烈直射光。高温和强光照射会导致叶片组织细胞坏死，形成干枯的红褐色斑块。",
+          "evidence": "叶片表面（特别是受光面）出现大块不规则的红褐色至焦茶色坏死斑。"
+        },
+        {
+          "name": "叶斑病（继发真菌感染风险）",
+          "type": "disease",
+          "severity": "low",
+          "confidence": "low",
+          "description": "日灼受损的叶片组织抵抗力下降，在潮湿或通风不良的环境下容易感染真菌病害。",
+          "evidence": "褐色坏死斑块边缘呈现轻微的变色圈。"
+        }
+      ],
+      "treatment": [
+        {
+          "title": "调整光照环境",
+          "detail": "立即将山茶花移至避开强烈直射阳光的位置，给予明亮的散射光，如树荫下、北面阳台或带有遮阳网的环境。",
+          "urgency": "now"
+        },
+        {
+          "title": "修剪受损叶片",
+          "detail": "使用经酒精消毒的剪刀，将坏死面积超过三分之一且无法恢复的叶片剪除，减少养分消耗并改善通风。",
+          "urgency": "soon"
+        },
+        {
+          "title": "预防性喷洒杀菌剂（备选）",
+          "detail": "若发现褐色斑块仍在向健康组织扩散，可使用多菌灵或代森锰锌等广谱杀菌剂按说明书比例稀释后叶面喷雾。操作时请佩戴防护手套，避开宠物与儿童。",
+          "urgency": "ongoing"
+        }
+      ],
+      "prevention": [
+        "夏季及初秋高温季节必须进行适当遮阴，切忌日光暴晒。",
+        "浇水时尽量直接浇入根部土壤，避免强光下叶片残留水珠导致光线聚焦灼伤叶片。",
+        "保持养护环境通风良好，及时清除落叶，降低病菌滋生风险。"
+      ],
+      "care": {
+        "light": "喜半阴环境，适宜明亮的散射光，忌强光直射。",
+        "water": "保持土壤微湿但绝不能积水，遵循见干见湿原则。",
+        "soil": "喜疏松、肥沃、排水良好且富含有机质的酸性土壤（pH 5.5-6.5）。",
+        "humidity": "喜较高的空气湿度，环境干燥时可在周围喷雾增湿，但需保持良好通风。",
+        "temperature": "生长适温为 15-25℃，夏季需降温通风，冬季需注意防寒保温。"
+      },
+      "disclaimer": "本结果仅为基于图像的自动化初步诊断，不能替代当地植物保护专家的现场专业鉴定。"
+    }
+  },
+  "durian-leaf-blight": {
+    "en": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "Durian",
+        "scientificName": "Durio zibethinus",
+        "confidence": "high",
+        "notes": "Recognizable by its smooth alternate leaves with coppery undersides and characteristic growth habit."
+      },
+      "health": {
+        "status": "serious_issues",
+        "summary": "The branch shows severe leaf blight causing leaves to brown, dry out, and clump together.",
+        "recovery": "unlikely"
+      },
+      "issues": [
+        {
+          "name": "Rhizoctonia Leaf Blight",
+          "type": "disease",
+          "severity": "high",
+          "confidence": "high",
+          "description": "A fungal infection often caused by Rhizoctonia solani that quickly browns foliage, causing leaves to wither, curl, and stick together.",
+          "evidence": "Multiple leaves on the branch are shriveled, dark brown, and completely necrotic while still adhering to the stem."
+        }
+      ],
+      "treatment": [
+        {
+          "title": "Prune Infected Foliage",
+          "detail": "Carefully cut off infected twigs and leaves at least 2-3 inches below the visible dead tissue using disinfected shears.",
+          "urgency": "now"
+        },
+        {
+          "title": "Sanitation and Cleanup",
+          "detail": "Collect and destroy or bag all fallen infected leaves. Do not compost disease-infected plant parts.",
+          "urgency": "now"
+        },
+        {
+          "title": "Apply Fungicide",
+          "detail": "Spray the foliage with a bio-fungicide (such as Bacillus subtilis or Trichoderma) or a copper-based fungicide. For severe outbreaks, labeled systemic fungicides like hexaconazole or validamycin may be used as a last resort following local agricultural guidelines.",
+          "urgency": "soon"
+        }
+      ],
+      "prevention": [
+        "Prune lower or dense canopy branches to improve air circulation and sunlight penetration.",
+        "Avoid overhead watering that wets the leaves; irrigate at soil level.",
+        "Keep mulch slightly pulled back from the main trunk to avoid excessive moisture build-up.",
+        "Disinfect pruning tools with rubbing alcohol between cuts."
+      ],
+      "care": {
+        "light": "Requires full sun for optimal growth and fruit production.",
+        "water": "Needs regular, deep watering; keep soil consistently moist but never waterlogged.",
+        "soil": "Thrives in deep, rich, well-drained sandy loam or clay loam with a pH around 6.0 to 7.0.",
+        "humidity": "Requires high relative humidity (70-80% or higher).",
+        "temperature": "Prefers warm tropical climates between 24°C and 32°C (75°F to 90°F); intolerant to cold and frost."
+      },
+      "disclaimer": "This is an automated visual assessment and not a substitute for professional in-person botanical diagnosis."
+    },
+    "zh": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "榴莲",
+        "scientificName": "Durio zibethinus",
+        "confidence": "high",
+        "notes": "叶片长椭圆形，背面呈金铜色或黄褐色，枝条形态符合热带果树榴莲的特征。"
+      },
+      "health": {
+        "status": "serious_issues",
+        "summary": "植株枝条受真菌性叶枯病（如立枯丝核菌或炭疽病）侵害严重，导致多片叶片干枯死亡并挂在枝头，剩余绿叶也出现边缘坏死斑块。",
+        "recovery": "unlikely"
+      },
+      "issues": [
+        {
+          "name": "榴莲叶枯病 / 叶烧病",
+          "type": "disease",
+          "severity": "high",
+          "confidence": "high",
+          "description": "由真菌（如立枯丝核菌 Rhizoctonia solani 或炭疽菌）引起的严重叶片病害。病菌会导致叶片快速失去水分、变褐干枯，并经常相互黏连或悬挂在枝头不落，严重影响光合作用和植株生长。",
+          "evidence": "同一枝条上有数片叶子已完全干枯呈褐色卷曲状，尚未完全干枯的绿叶边缘也有大面积坏死焦枯斑块。"
+        }
+      ],
+      "treatment": [
+        {
+          "title": "修剪并销毁病叶病枝",
+          "detail": "立即使用消毒过的剪刀剪除受损严重和已干枯的叶片及细枝。剪下的病组织应远离果园进行集中焚烧或深埋，切勿随意丢弃在树下，以免病原菌随风雨再次传播。",
+          "urgency": "now"
+        },
+        {
+          "title": "改善通风与控湿",
+          "detail": "适当修剪过密枝条，清理树冠内部，改善透光和空气流通条件。避免叶面长时间积水，雨后注意排涝。",
+          "urgency": "soon"
+        },
+        {
+          "title": "杀菌剂防治（必要时的化学手段）",
+          "detail": "在病情扩散阶段，可使用铜制剂（如波尔多液、氢氧化铜）或广谱性杀菌剂（如嘧菌酯、代森锰锌）对树冠进行全面喷雾防治。施药时请佩戴防护装备，遵循产品安全间隔期说明。",
+          "urgency": "soon"
+        }
+      ],
+      "prevention": [
+        "雨季前做好排水系统维护，降低果园局部空气湿度。",
+        "合理均衡施肥，避免过量施用氮肥，适当补充磷钾肥和微量元素以增强树势。",
+        "定期巡视果园，在发病初期及时摘除少量病叶，防止大面积扩散。",
+        "修剪工具使用前和使用后用酒精或漂白水消毒，防止交叉感染。"
+      ],
+      "care": {
+        "light": "喜充足阳光，生长需要全日照环境。",
+        "water": "喜湿润环境但极忌积水，需要良好的排水条件。",
+        "soil": "宜选择土层深厚、疏松肥沃、排水良好的微酸性壤土或砂质壤土。",
+        "humidity": "适合在高湿度（70%–80%）的环境中生长，高湿阴雨期需防范真菌病害爆发。",
+        "temperature": "热带植物，生长适温为24°C–32°C，极不耐寒，低于10°C易受冻害。"
+      },
+      "disclaimer": "本结果为基于图像的自动分析评估，不能替代当地植物保护专家或农业技术人员的现场诊断。"
+    }
+  },
+  "powdery-mildew": {
+    "en": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "Euonymus / Spindle Shrub",
+        "scientificName": "Euonymus spp.",
+        "confidence": "medium",
+        "notes": "Tightly cropped photo shows serrated foliage typical of Euonymus or similar broadleaf ornamental shrubs."
+      },
+      "health": {
+        "status": "minor_issues",
+        "summary": "The foliage is infected with powdery mildew, visible as powdery white circular spots on the leaf surfaces.",
+        "recovery": "likely"
+      },
+      "issues": [
+        {
+          "name": "Powdery Mildew",
+          "type": "disease",
+          "severity": "medium",
+          "confidence": "high",
+          "description": "A common fungal disease that forms a white, powdery coating on foliage, interfering with photosynthesis and stress tolerance.",
+          "evidence": "Bright white, rounded, talc-like patches on the upper surface of the green leaves."
+        }
+      ],
+      "treatment": [
+        {
+          "title": "Remove heavily affected leaves",
+          "detail": "Gently snip off leaves with significant white patches to reduce spore load, wiping tools with alcohol between cuts.",
+          "urgency": "now"
+        },
+        {
+          "title": "Apply low-toxicity fungicide",
+          "detail": "Spray the foliage with neem oil, potassium bicarbonate, or sulfur-based fungicide according to product instructions. Test a small area first.",
+          "urgency": "soon"
+        },
+        {
+          "title": "Adjust watering and airflow",
+          "detail": "Improve air circulation around the plant and water directly at the base to keep leaves completely dry.",
+          "urgency": "ongoing"
+        }
+      ],
+      "prevention": [
+        "Avoid overhead watering; keep foliage as dry as possible.",
+        "Space plants properly to maintain high airflow around leaves.",
+        "Place the plant in an area with adequate bright light.",
+        "Avoid over-fertilizing with high-nitrogen plant food, which encourages soft, mildew-prone growth."
+      ],
+      "care": {
+        "light": "Prefers bright, indirect light to full sun depending on the cultivar.",
+        "water": "Water thoroughly when the top inch of soil dries out, keeping water off the leaves.",
+        "soil": "Well-draining standard potting mix or fertile garden soil.",
+        "humidity": "Thrives in moderate humidity; requires good ventilation to prevent fungal spores from settling.",
+        "temperature": "Tolerates a wide range, ideal between 60°F and 75°F (15°C to 24°C)."
+      },
+      "disclaimer": "This is an automated visual diagnosis and should not replace advice from a local plant specialist or extension service."
+    },
+    "zh": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "卫矛 (或常见观叶植物)",
+        "scientificName": "Euonymus japonicus",
+        "confidence": "low",
+        "notes": "照片拍摄视角较近且局部模糊，难以准确判断具体植物品种，但叶片病害特征非常显著。"
+      },
+      "health": {
+        "status": "minor_issues",
+        "summary": "植物受真菌感染，叶片表面出现了典型的白粉病斑块，需及时干预以防扩散。",
+        "recovery": "likely"
+      },
+      "issues": [
+        {
+          "name": "白粉病",
+          "type": "disease",
+          "severity": "medium",
+          "confidence": "high",
+          "description": "白粉病是由真菌引起的常见病害，会在叶片表面形成白色粉状斑点，阻碍光合作用并消耗营养，严重时会导致叶片发黄脱落。",
+          "evidence": "叶片表面有非常清晰的白色、粉末状圆形斑块。"
+        }
+      ],
+      "treatment": [
+        {
+          "title": "剪除受感染叶片",
+          "detail": "用消毒剪刀将带有明显白斑的叶片剪掉并直接扔进垃圾桶，切勿留在盆土表面或用于堆肥，以防孢子传播。",
+          "urgency": "now"
+        },
+        {
+          "title": "改善环境通风",
+          "detail": "将植株移至空气流通良好、光照充足的位置，降低叶片周围的湿度。",
+          "urgency": "soon"
+        },
+        {
+          "title": "喷洒温和的杀菌剂",
+          "detail": "可使用印楝油或自制小苏打溶液（每升水加入约5克小苏打和几滴洗洁精）均匀喷洒叶片正反面。若病情反复，可考虑作为最后手段使用化学杀真菌剂（如甲基托布津或代森锰锌）。",
+          "urgency": "soon"
+        }
+      ],
+      "prevention": [
+        "浇水时直接浇在根部土壤，避免直接喷洒在叶片上。",
+        "定期修剪过密的枝叶，保持良好的植株内部通风。",
+        "控制氮肥施用量，避免产生过多脆弱的新生嫩叶。",
+        "保持环境清洁，及时清理落叶。"
+      ],
+      "care": {
+        "light": "需要充足的明亮散射光或适度直射光，阳光有助于抑制真菌繁殖。",
+        "water": "坚持见干见湿原则，待表层土壤微干后再彻底浇透水。",
+        "soil": "使用疏松、透气且排水良好的培养土。",
+        "humidity": "保持环境适度干燥或中等湿度，避免高湿且不通风的环境。",
+        "temperature": "适宜生长温度为 15°C 至 25°C。"
+      },
+      "disclaimer": "本诊断仅基于图片外观评估，不能替代当地植物病理专家的现场确诊。"
+    }
+  },
+  "hydrangea-leaf-spot": {
+    "en": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "Bigleaf Hydrangea",
+        "scientificName": "Hydrangea macrophylla",
+        "confidence": "high",
+        "notes": "Identified by the large, opposite, ovate leaves with coarsely serrated edges and distinct veining."
+      },
+      "health": {
+        "status": "serious_issues",
+        "summary": "The hydrangea shows widespread fungal foliage damage, primarily evidenced by a powdery white coating on the leaves along with significant purple and brown leaf spotting.",
+        "recovery": "unlikely"
+      },
+      "issues": [
+        {
+          "name": "Powdery Mildew",
+          "type": "disease",
+          "severity": "medium",
+          "confidence": "high",
+          "description": "A common fungal infection that forms a powdery white or grayish dusting on leaf surfaces, reducing light absorption and weakening the plant.",
+          "evidence": "Patches of dusty white coating spread across several leaves in the center and foreground."
+        },
+        {
+          "name": "Cercospora Leaf Spot / Late Season Purpling",
+          "type": "disease",
+          "severity": "medium",
+          "confidence": "medium",
+          "description": "Fungal leaf spot causes purple to brown blotches across leaves, often aggravated by high humidity or overhead watering.",
+          "evidence": "Extensive purplish-brown blotches and necrotic brown areas along the leaf margins and blade surfaces."
+        }
+      ],
+      "treatment": [
+        {
+          "title": "Remove heavily infected foliage",
+          "detail": "Carefully trim off leaves that are mostly covered in white fungal powder or dark purple blotches. Dispose of them in the trash, not in the compost bin.",
+          "urgency": "now"
+        },
+        {
+          "title": "Apply low-toxicity fungicide",
+          "detail": "Spray remaining foliage with potassium bicarbonate, neem oil, or a bio-fungicide registered for powdery mildew. Apply during cooler hours (early morning or evening) to prevent leaf burn.",
+          "urgency": "soon"
+        },
+        {
+          "title": "Modify watering practices",
+          "detail": "Always water at the soil line rather than overhead. Keeping the leaves dry prevents fungal spores from germinating.",
+          "urgency": "ongoing"
+        }
+      ],
+      "prevention": [
+        "Rake up and destroy all fallen leaves at the end of the season to prevent fungal spores from overwintering in the soil.",
+        "Space plants properly or prune inner stems to ensure adequate airflow around leaves.",
+        "Avoid applying excessive nitrogen fertilizer, which produces tender growth that is susceptible to fungal infection."
+      ],
+      "care": {
+        "light": "Morning sun with afternoon shade is ideal; protect from intense midday sun.",
+        "water": "Keep soil consistently moist but never waterlogged; water deeply at the roots.",
+        "soil": "Rich, moist, organic-rich soil that drains well.",
+        "humidity": "Thrives in moderate to high humidity, but requires good air circulation to prevent leaf diseases.",
+        "temperature": "Prefers mild temperatures between 60°F and 75°F (15°C to 24°C)."
+      },
+      "disclaimer": "This automated analysis is based on visual evidence and should not replace a professional hands-on diagnosis by a local nursery or extension service."
+    },
+    "zh": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "大叶绣球",
+        "scientificName": "Hydrangea macrophylla",
+        "confidence": "high",
+        "notes": "根据椭圆形带锯齿的叶片特征以及较厚的叶片质地，判断为绣球花（大叶绣球）。"
+      },
+      "health": {
+        "status": "serious_issues",
+        "summary": "植株受到严重的白粉病感染，叶片表面覆盖有明显的白色粉状霉层，同时伴有紫褐色斑块和边缘干枯现象。",
+        "recovery": "unlikely"
+      },
+      "issues": [
+        {
+          "name": "白粉病",
+          "type": "disease",
+          "severity": "high",
+          "confidence": "high",
+          "description": "由真菌引起的常见病害，会在叶片表面形成白色粉状覆盖物，阻碍光合作用，严重时导致叶片畸形、黄化和干枯。",
+          "evidence": "叶片表面（特别是较新和成熟叶片）有成片明显的白色粉末状真菌菌丝和孢子。"
+        },
+        {
+          "name": "真菌性叶斑病或季节性衰老胁迫",
+          "type": "disease",
+          "severity": "medium",
+          "confidence": "medium",
+          "description": "可能伴随有尾孢叶斑病或炭疽病，也可能与生长季末期叶片自然衰老、环境湿度过高或通风不良有关。",
+          "evidence": "大部分叶片呈现紫褐色斑块，边缘枯焦变脆。"
+        }
+      ],
+      "treatment": [
+        {
+          "title": "剪除重病叶片",
+          "detail": "小心剪下受损严重、覆盖大量白粉或坏死枯干的叶片，防止真菌孢子进一步扩散。剪下的病叶请直接丢弃，切勿放入堆肥桶。",
+          "urgency": "now"
+        },
+        {
+          "title": "改善环境通风与光照",
+          "detail": "将植株移至通风良好、有明亮散射光的地方。浇水时直接浇在根部土壤上，切勿从上方喷淋叶片，保持叶面干燥。",
+          "urgency": "soon"
+        },
+        {
+          "title": "低毒/生物杀菌治理",
+          "detail": "可使用印楝油（Neem Oil）或0.5%浓度的食用小苏打水溶液，全面喷洒叶片正反面，每隔5-7天喷一次，连续2-3次。",
+          "urgency": "soon"
+        },
+        {
+          "title": "化学杀菌剂治理（备用方案）",
+          "detail": "若低毒治理效果不佳，可选用苯醚甲环唑、氟硅唑或甲基托布津等专用杀菌剂进行喷雾处理。请严格按照说明书稀释并注意个人防护。",
+          "urgency": "ongoing"
+        }
+      ],
+      "prevention": [
+        "定期修剪内部过密枝条，增强株型内部的通风透光性。",
+        "采用根部灌溉方式浇水，避免晚间叶片带水过夜。",
+        "早春发芽前清理盆土表面落叶，可适量喷施石硫合剂进行清园。",
+        "避免施用过量氮肥，适量增加磷钾肥以提高植株抗病能力。"
+      ],
+      "care": {
+        "light": "喜半阴环境，偏好早晨明亮阳光，忌夏季正午强光暴晒。",
+        "water": "喜湿润但怕积水，保持土壤微湿，遵循见干见湿原则。",
+        "soil": "宜选用疏松、肥沃、排水良好的微酸性至中性培养土。",
+        "humidity": "喜欢中等偏高空气湿度，但务必配合良好通风以防病害发生。",
+        "temperature": "适宜生长温度为18℃-28℃，冬季低于5℃时进入休眠期，需注意防寒。"
+      },
+      "disclaimer": "本结果为基于图像的自动分析评估，不能替代当地植物保护专家或农技人员的现场确诊。"
+    }
+  },
+  "durian-leaf-scorch": {
+    "en": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "Durian",
+        "scientificName": "Durio zibethinus",
+        "confidence": "medium",
+        "notes": "The glossy elliptic leaves with golden-brown leaf undersides and delicate branching pattern are characteristic of durian trees."
+      },
+      "health": {
+        "status": "serious_issues",
+        "summary": "The plant exhibits severe signs of foliar blight, likely Rhizoctonia leaf blight (web blight), which causes brown necrotic spots, leaf sticking, and foliage death.",
+        "recovery": "unlikely"
+      },
+      "issues": [
+        {
+          "name": "Rhizoctonia Leaf Blight (Web Blight)",
+          "type": "disease",
+          "severity": "high",
+          "confidence": "high",
+          "description": "A fungal disease common in warm, humid conditions that creates large, water-soaked brown blighted patches and binds adjacent leaves together with fungal mycelium.",
+          "evidence": "Large, irregular brown necrotic lesions spanning across multiple leaves, with central leaves adhering or webbed together and drying out."
+        }
+      ],
+      "treatment": [
+        {
+          "title": "Remove Affected Foliage",
+          "detail": "Carefully prune and remove all leaves showing brown lesions or webbing. Seal diseased leaves in a bag and dispose of them away from the garden to stop fungal spores from spreading.",
+          "urgency": "now"
+        },
+        {
+          "title": "Improve Canopy Ventilation and Sanitize Tools",
+          "detail": "Prune surrounding non-essential branches to allow sunlight and wind to penetrate the canopy. Clean pruning shears with 70% rubbing alcohol between cuts.",
+          "urgency": "soon"
+        },
+        {
+          "title": "Apply Fungicide (Last Resort)",
+          "detail": "If the blighting spreads rapidly during rainy seasons, apply a copper-based fungicide or bio-fungicide (such as Bacillus subtilis) targeted for leaf blight, following all label instructions carefully.",
+          "urgency": "soon"
+        }
+      ],
+      "prevention": [
+        "Avoid overhead irrigation; water directly at the root zone without splashing soil onto leaves.",
+        "Maintain adequate plant spacing to encourage rapid drying of foliage after rain.",
+        "Rake up and destroy any fallen leaves around the base of the tree promptly."
+      ],
+      "care": {
+        "light": "Full sun for mature trees; partial shade protected from harsh midday sun for young saplings.",
+        "water": "Requires regular, deep watering to keep soil consistently moist, but root zone must be well-drained.",
+        "soil": "Rich, deep, fertile, well-draining loamy soil with a neutral to slightly acidic pH (6.0–7.0).",
+        "humidity": "Thrives in high tropical humidity (75–80%+).",
+        "temperature": "Requires warm tropical conditions between 24°C and 32°C (75°F–90°F); very sensitive to temperatures below 15°C (59°F)."
+      },
+      "disclaimer": "This analysis is an automated visual assessment and should not replace a professional diagnosis from a local agricultural extension office or botanical expert."
+    },
+    "zh": {
+      "isPlant": true,
+      "identification": {
+        "commonName": "榴莲",
+        "scientificName": "Durio zibethinus",
+        "confidence": "medium",
+        "notes": "根据椭圆形革质叶片、光泽及枝条形态判断为榴莲树叶片。"
+      },
+      "health": {
+        "status": "serious_issues",
+        "summary": "植株表现出典型的真菌性叶枯病（如立枯丝核菌引起的蛛网病/叶腐病）症状，部分叶片出现大面积焦枯坏死并互相粘连。",
+        "recovery": "unlikely"
+      },
+      "issues": [
+        {
+          "name": "榴莲叶枯病 / 蛛网病",
+          "type": "disease",
+          "severity": "high",
+          "confidence": "high",
+          "description": "通常由立枯丝核菌（Rhizoctonia solani）等真菌引起，高温高湿环境下极易暴发。病菌会破坏叶片组织形成大面积褐色坏死斑，并通过菌丝将邻近叶片牵连粘合，严重时导致大量落叶。",
+          "evidence": "图中中央叶片有大面积茶褐色坏死斑块，且多个叶片重叠粘连，呈现典型叶枯病形态。"
+        }
+      ],
+      "treatment": [
+        {
+          "title": "修剪并清除病叶",
+          "detail": "立即使用经酒精消毒的剪刀剪除所有受感染、坏死及粘连的病叶，并将其密封带离果园丢弃，切勿留在树下或用于堆肥。",
+          "urgency": "now"
+        },
+        {
+          "title": "改善通风透光",
+          "detail": "对树冠进行适当修剪，剪除过密枝条，增加内部空气流动，降低叶片表面的湿度和结露时间。",
+          "urgency": "soon"
+        },
+        {
+          "title": "喷施针对性杀菌剂",
+          "detail": "作为控制病害蔓延的手段，可在发病区域及周围喷施代森锰锌、井冈霉素或铜制剂等杀菌剂。请严格按照产品说明书剂量使用，并注意交替用药。",
+          "urgency": "soon"
+        }
+      ],
+      "prevention": [
+        "雨季或高温高湿季节前提前修剪树冠，保持良好的通风透光条件。",
+        "避免傍晚进行叶面喷灌，尽量采用根部滴灌，减少叶片积水时间。",
+        "及时清理树下落叶和杂草，减少病原菌的滋生和越冬基数。",
+        "合理施肥，避免偏施氮肥，增加磷钾肥和微量元素以提高抗病力。"
+      ],
+      "care": {
+        "light": "喜充足阳光，需要全日照或强光环境才能良好生长。",
+        "water": "喜湿润但极忌积水，保持土壤微湿即可，雨季注意排水。",
+        "soil": "宜用排水良好、富含有机质的微酸性砂质壤土（pH 5.5-6.5）。",
+        "humidity": "喜高湿环境（70%以上），但需配合良好的空气流通以防病害。",
+        "temperature": "热带植物，最适生长温度为 24℃-32℃，极不耐寒，低于 10℃ 易受冻害。"
+      },
+      "disclaimer": "本结果仅为基于图像的自动化初步诊断，不能替代当地农业技术人员或植物病理专家的现场专业诊断。"
+    }
+  }
+}
