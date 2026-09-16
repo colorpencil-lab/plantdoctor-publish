@@ -10,7 +10,7 @@ import { SESSION_UI, sessionStatus, type ScanSession } from "@/lib/farm/model";
 import type { PhotoTotals } from "@/lib/farm/sessions";
 
 export default function SessionDetail({ session: initial }: { session: ScanSession }) {
-  const [lang] = useLang();
+  const [lang, setLang] = useLang();
   const f = SESSION_UI[lang];
   const router = useRouter();
   const [session, setSession] = useState(initial);
@@ -43,12 +43,13 @@ export default function SessionDetail({ session: initial }: { session: ScanSessi
         </div>
       )}
 
-      <FarmDashboard session={session} />
+      <FarmDashboard session={session} lang={lang} setLang={setLang} />
 
       {showEnd && (
         <EndSessionDialog
           lang={lang}
           sessionId={session.id}
+          startedAt={session.startedAt}
           onClose={() => setShowEnd(false)}
           onEnded={(updated) => {
             setSession(updated);

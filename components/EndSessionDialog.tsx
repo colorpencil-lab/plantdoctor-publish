@@ -17,11 +17,14 @@ function toSessionIso(inputValue: string): string {
 export default function EndSessionDialog({
   lang,
   sessionId,
+  startedAt,
   onClose,
   onEnded,
 }: {
   lang: Lang;
   sessionId: string;
+  /** The session's own startedAt (ISO local, no zone) — end time must be after this. */
+  startedAt: string;
   onClose: () => void;
   onEnded: (session: ScanSession) => void;
 }) {
@@ -29,15 +32,21 @@ export default function EndSessionDialog({
   const [finishedAt, setFinishedAt] = useState(nowForInput());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const minInput = startedAt.slice(0, 16);
 
   const submit = async () => {
+    const finished = toSessionIso(finishedAt);
+    if (Date.parse(finished) <= Date.parse(startedAt)) {
+      setError(f.endBeforeStart);
+      return;
+    }
     setBusy(true);
     setError(null);
     try {
       const res = await fetch(`/api/sessions/${sessionId}/end`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ finishedAt: toSessionIso(finishedAt) }),
+        body: JSON.stringify({ finishedAt: finished }),
       });
       const data = (await res.json().catch(() => null)) as
         | { session: ScanSession }
@@ -64,6 +73,7 @@ export default function EndSessionDialog({
           <input
             type="datetime-local"
             value={finishedAt}
+            min={minInput}
             onChange={(e) => setFinishedAt(e.target.value)}
           />
         </label>

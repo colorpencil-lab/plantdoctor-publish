@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import LangToggle from "@/components/LangToggle";
 import PlantCheckDetail from "@/components/PlantCheckDetail";
-import { useLang } from "@/lib/useLang";
-import { UI } from "@/lib/i18n";
+import { UI, type Lang } from "@/lib/i18n";
 import {
   CATEGORY_LABEL,
   FARM_UI,
@@ -27,8 +26,18 @@ type SevFilter = "all" | Severity;
 
 const SEV_ORDER: Record<Severity, number> = { high: 0, medium: 1, low: 2 };
 
-export default function FarmDashboard({ session }: { session: ScanSession }) {
-  const [lang, setLang] = useLang();
+export default function FarmDashboard({
+  session,
+  lang,
+  setLang,
+}: {
+  session: ScanSession;
+  /** Shared with the rest of the session detail page — not owned locally, so
+   *  the language toggle here (and in PhotoUpload/EndSessionDialog above it)
+   *  always stays in sync. */
+  lang: Lang;
+  setLang: (next: Lang) => void;
+}) {
   const f = FARM_UI[lang];
   const [sev, setSev] = useState<SevFilter>("all");
   const [selected, setSelected] = useState<PlantCheck | null>(null);
