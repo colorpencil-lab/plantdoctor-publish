@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { analyzeImage, decodeImagePayload } from "@/lib/analyze";
 import { isLang } from "@/lib/i18n";
-import { checkFromAnalysis } from "@/lib/farm/ingest";
+import { checkFromAnalysis, attachPhoto } from "@/lib/farm/ingest";
 import { addPhotoOutcome, resolveCurrentSessionId, SessionError } from "@/lib/farm/sessions";
 import { nowLocalIso, type PlantCheck } from "@/lib/farm/model";
 
@@ -84,7 +84,10 @@ export async function POST(request: Request) {
   if (!outcome.ok) return jsonError(outcome.message, outcome.status);
 
   const checkedAt = nowLocalIso();
-  const check = checkFromAnalysis({ unit, row, col, checkedAt }, outcome.result);
+  let check = checkFromAnalysis({ unit, row, col, checkedAt }, outcome.result);
+  if (check) {
+    check = await attachPhoto(check, decoded.bytes, decoded.mediaType, sessionId);
+  }
 
   try {
     await addPhotoOutcome(sessionId, check);
