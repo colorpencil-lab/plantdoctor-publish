@@ -33,12 +33,13 @@ export default function SessionDetail({ session: initial }: { session: ScanSessi
     <>
       {inProgress && (
         <div className="session-controls">
-          <PhotoUpload lang={lang} sessionId={session.id} onResult={applyTotals} />
-          <div className="button-row">
-            <button className="btn btn-ghost" onClick={() => setShowEnd(true)}>
-              {f.endSession}
-            </button>
-          </div>
+          <PhotoUpload lang={lang} sessionId={session.id} onResult={applyTotals}>
+            <div className="button-row">
+              <button className="btn btn-ghost" onClick={() => setShowEnd(true)}>
+                {f.endSession}
+              </button>
+            </div>
+          </PhotoUpload>
         </div>
       )}
 

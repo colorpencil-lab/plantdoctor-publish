@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type ChangeEvent, type DragEvent } from "react";
+import { useRef, useState, type ChangeEvent, type DragEvent, type ReactNode } from "react";
 import { ACCEPTED, loadImageFile } from "@/lib/imageInput";
 import { SESSION_UI, text, type PlantCheck } from "@/lib/farm/model";
 import type { PhotoTotals } from "@/lib/farm/sessions";
@@ -16,10 +16,13 @@ export default function PhotoUpload({
   lang,
   sessionId,
   onResult,
+  children,
 }: {
   lang: Lang;
   sessionId: string;
   onResult: (totals: PhotoTotals, check: PlantCheck | null) => void;
+  /** Rendered at the bottom of the upload card, e.g. an "End session" button. */
+  children?: ReactNode;
 }) {
   const f = SESSION_UI[lang];
   const [busy, setBusy] = useState(false);
@@ -130,6 +133,8 @@ export default function PhotoUpload({
           ))}
         </ul>
       )}
+
+      {children}
     </section>
   );
 }

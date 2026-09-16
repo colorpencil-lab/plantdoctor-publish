@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import LangToggle from "@/components/LangToggle";
+import PlantCheckDetail from "@/components/PlantCheckDetail";
 import { useLang } from "@/lib/useLang";
 import { UI } from "@/lib/i18n";
 import {
@@ -17,6 +18,7 @@ import {
   formatDateTime,
   sessionStatus,
   text,
+  type PlantCheck,
   type ScanSession,
   type Severity,
 } from "@/lib/farm/model";
@@ -29,6 +31,7 @@ export default function FarmDashboard({ session }: { session: ScanSession }) {
   const [lang, setLang] = useLang();
   const f = FARM_UI[lang];
   const [sev, setSev] = useState<SevFilter>("all");
+  const [selected, setSelected] = useState<PlantCheck | null>(null);
 
   const rows = useMemo(() => {
     return session.checks
@@ -121,7 +124,16 @@ export default function FarmDashboard({ session }: { session: ScanSession }) {
             </thead>
             <tbody>
               {rows.map((c) => (
-                <tr key={c.unit}>
+                <tr
+                  key={c.unit}
+                  className="session-row"
+                  tabIndex={0}
+                  role="button"
+                  onClick={() => setSelected(c)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") setSelected(c);
+                  }}
+                >
                   <td className="cell-unit">{c.unit}</td>
                   <td className="cell-time">{formatDateTime(c.checkedAt, lang)}</td>
                   <td>{text(c.plant, lang)}</td>
@@ -154,6 +166,10 @@ export default function FarmDashboard({ session }: { session: ScanSession }) {
       <footer className="site-footer">
         <p>{UI[lang].footer}</p>
       </footer>
+
+      {selected && (
+        <PlantCheckDetail check={selected} lang={lang} onClose={() => setSelected(null)} />
+      )}
     </main>
   );
 }
