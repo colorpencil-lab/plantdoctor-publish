@@ -41,6 +41,8 @@ export interface PlantCheck {
   category: IssueCategory;
   severity: Severity;
   recovery: Recovery;
+  /** Vercel Blob URL for the photo that flagged this plant, if photo storage is configured. */
+  photoUrl?: string;
 }
 
 export type SessionStatus = "in_progress" | "completed";

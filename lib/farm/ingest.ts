@@ -1,9 +1,11 @@
+import type { AllowedMediaType } from "../analyze";
+import { savePhoto } from "../blob";
 import type { AnalysisResult, Issue } from "../types";
 import type { IssueCategory, PlantCheck, Recovery } from "./model";
 
-// Turn one AnalysisResult into a dashboard row. Used by /api/ingest when the
-// field camera unit sends a photo. Returns null when the plant is healthy /
-// the photo isn't a plant — those don't appear on the dashboard.
+// Turn one AnalysisResult into a dashboard row. Used by /api/ingest and the
+// session photo-upload route. Returns null when the plant is healthy / the
+// photo isn't a plant — those don't appear on the dashboard.
 
 const RX: Array<[IssueCategory, RegExp]> = [
   ["viral", /virus|viral|mosaic|leaf ?curl virus/i],
@@ -55,7 +57,10 @@ export function checkFromAnalysis(
     row: loc.row,
     col: loc.col,
     checkedAt: loc.checkedAt,
-    // The device sends one language per pass; store it in both slots for now.
+    // A single analysis only comes back in one language — duplicated into
+    // both slots (no separate translation call; that would double the AI
+    // request count per flagged photo, which isn't worth it on a tight
+    // rate-limited free tier).
     plant: { en: plant, zh: plant },
     issueTitle: { en: title, zh: title },
     issueSummary: { en: summary, zh: summary },
@@ -63,4 +68,27 @@ export function checkFromAnalysis(
     severity: top.severity,
     recovery: recoveryFrom(result),
   };
+}
+
+const EXT_BY_MEDIA_TYPE: Record<AllowedMediaType, string> = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+  "image/gif": "gif",
+};
+
+/**
+ * For a flagged check only: saves the photo to Blob storage and attaches its
+ * URL. Best-effort — a missing Blob token or a failed upload just leaves the
+ * check without a photo rather than losing the check itself.
+ */
+export async function attachPhoto(
+  check: PlantCheck,
+  bytes: Buffer,
+  mediaType: AllowedMediaType,
+  sessionId: string,
+): Promise<PlantCheck> {
+  const pathname = `sessions/${sessionId}/${check.unit}-${Date.now()}.${EXT_BY_MEDIA_TYPE[mediaType]}`;
+  const photoUrl = await savePhoto(pathname, bytes, mediaType);
+  return photoUrl ? { ...check, photoUrl } : check;
 }
