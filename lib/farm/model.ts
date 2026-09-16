@@ -144,6 +144,7 @@ export interface FarmStrings {
   notFinished: string;
   inProgressBanner: string;
   toSessions: string;
+  close: string;
 }
 
 export const FARM_UI: Record<Lang, FarmStrings> = {
@@ -171,6 +172,7 @@ export const FARM_UI: Record<Lang, FarmStrings> = {
     minutes: (m) => `${m} min`,
     notFinished: "—",
     inProgressBanner: "Scan in progress — upload photos as you go.",
+    close: "Close",
   },
   zh: {
     title: "农场巡检",
@@ -196,6 +198,7 @@ export const FARM_UI: Record<Lang, FarmStrings> = {
     minutes: (m) => `${m} 分钟`,
     notFinished: "—",
     inProgressBanner: "巡检进行中 —— 可随时上传照片。",
+    close: "关闭",
   },
 };
 
