@@ -78,7 +78,11 @@ export async function getSession(id: string): Promise<ScanSession | null> {
   if (!meta.startedAt) return null;
 
   const raw = await store.lRange(checksKey(id));
-  const checks: PlantCheck[] = raw.map((s) => JSON.parse(s) as PlantCheck);
+  // Defensive: a Store should always hand back raw strings (see lib/kv.ts),
+  // but tolerate an already-parsed value rather than crash on it.
+  const checks: PlantCheck[] = raw.map((s) =>
+    typeof s === "string" ? (JSON.parse(s) as PlantCheck) : (s as PlantCheck),
+  );
 
   return { ...toSummary(id, meta), checks };
 }
