@@ -36,10 +36,18 @@ export async function createSession(startedAt?: string): Promise<ScanSession> {
   const store = getStore();
   const current = await store.get(CURRENT_KEY);
   if (current) {
-    throw new SessionError(
-      "A session is already in progress — end it before starting a new one.",
-      409,
-    );
+    const currentMeta = await store.hGetAll(metaKey(current));
+    const stillActive = Boolean(currentMeta.startedAt) && !currentMeta.finishedAt;
+    if (stillActive) {
+      throw new SessionError(
+        "A session is already in progress — end it before starting a new one.",
+        409,
+      );
+    }
+    // The "current session" pointer refers to a session that no longer
+    // exists (or was already finished without clearing it) — a stale lock
+    // rather than a real one. Clear it instead of blocking forever.
+    await store.del(CURRENT_KEY);
   }
 
   const id = crypto.randomUUID();
