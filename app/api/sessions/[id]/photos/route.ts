@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { analyzeImage, decodeImagePayload } from "@/lib/analyze";
 import { isLang } from "@/lib/i18n";
-import { checkFromAnalysis } from "@/lib/farm/ingest";
+import { checkFromAnalysis, attachPhoto } from "@/lib/farm/ingest";
 import { addPhotoOutcome, getSession, nextUnitLabel, SessionError } from "@/lib/farm/sessions";
 import { nowLocalIso } from "@/lib/farm/model";
 import type { PlantCheck } from "@/lib/farm/model";
@@ -50,10 +50,13 @@ export async function POST(request: Request, ctx: RouteContext<"/api/sessions/[i
 
   const unit = await nextUnitLabel(id);
   const checkedAt = nowLocalIso();
-  const check: PlantCheck | null = checkFromAnalysis(
+  let check: PlantCheck | null = checkFromAnalysis(
     { unit, row: 0, col: Number(unit.slice(1)), checkedAt },
     outcome.result,
   );
+  if (check) {
+    check = await attachPhoto(check, decoded.bytes, decoded.mediaType, id);
+  }
 
   try {
     const totals = await addPhotoOutcome(id, check);
