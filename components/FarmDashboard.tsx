@@ -15,6 +15,7 @@ import {
   durationMinutes,
   formatCount,
   formatDateTime,
+  sessionStatus,
   text,
   type ScanSession,
   type Severity,
@@ -41,14 +42,18 @@ export default function FarmDashboard({ session }: { session: ScanSession }) {
   }, [session.checks, sev]);
 
   const minutes = durationMinutes(session.startedAt, session.finishedAt);
+  const inProgress = sessionStatus(session) === "in_progress";
 
   const stats = [
     { label: f.statScanned, value: formatCount(session.plantsScanned) },
     { label: f.statHealthy, value: formatCount(session.plantsHealthy), tone: "good" },
     { label: f.statFlagged, value: formatCount(session.plantsFlagged), tone: "bad" },
     { label: f.statStart, value: formatDateTime(session.startedAt, lang) },
-    { label: f.statEnd, value: formatDateTime(session.finishedAt, lang) },
-    { label: f.statDuration, value: f.minutes(minutes) },
+    {
+      label: f.statEnd,
+      value: session.finishedAt ? formatDateTime(session.finishedAt, lang) : f.notFinished,
+    },
+    { label: f.statDuration, value: minutes === null ? f.notFinished : f.minutes(minutes) },
   ];
 
   const sevFilters: SevFilter[] = ["all", "high", "medium", "low"];
@@ -67,11 +72,13 @@ export default function FarmDashboard({ session }: { session: ScanSession }) {
         </div>
         <p className="tagline">{f.subtitle}</p>
         <p className="header-nav">
+          <Link href="/dashboard">{f.toSessions}</Link>
+          {" · "}
           <Link href="/">{f.back}</Link>
         </p>
       </header>
 
-      <p className="awaiting-device">{f.awaitingDevice}</p>
+      {inProgress && <p className="awaiting-device">{f.inProgressBanner}</p>}
 
       <section className="stat-grid" aria-label={f.title}>
         {stats.map((s) => (

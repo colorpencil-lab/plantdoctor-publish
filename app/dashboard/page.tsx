@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import FarmDashboard from "@/components/FarmDashboard";
-import { DEMO_SESSION } from "@/lib/farm/demo";
+import SessionList from "@/components/SessionList";
+import { listRecentSessions } from "@/lib/farm/sessions";
+
+// Session data changes on every scan action — never serve a stale build-time snapshot.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Farm dashboard · 农场看板",
-  description:
-    "Plants flagged with a detected illness in the latest farm camera scan.",
+  title: "Scan sessions · 巡检记录",
+  description: "History of farm scan sessions, device or manual.",
 };
 
-export default function DashboardPage() {
-  return <FarmDashboard session={DEMO_SESSION} />;
+export default async function DashboardPage() {
+  const sessions = await listRecentSessions(10);
+  return <SessionList sessions={sessions} />;
 }

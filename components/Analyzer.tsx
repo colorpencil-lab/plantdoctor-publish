@@ -16,48 +16,10 @@ import type {
 import { UI, type Lang } from "@/lib/i18n";
 import { DEMO_PHOTOS, demoPhotoLabel } from "@/lib/fixtures/photos";
 import { Diagnosis, DemoNote } from "@/components/Diagnosis";
+import { ACCEPTED, downscale, readFileAsDataUrl } from "@/lib/imageInput";
 
 type Status = "idle" | "loading" | "done" | "error";
 type Mode = "upload" | "camera";
-
-const MAX_DIMENSION = 1600; // downscale before upload to keep payloads small
-const ACCEPTED = ["image/jpeg", "image/png", "image/webp", "image/gif"];
-
-/** Load an image source and re-encode it, capped at MAX_DIMENSION on the long edge. */
-function downscale(src: string): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => {
-      const scale = Math.min(
-        1,
-        MAX_DIMENSION / Math.max(img.naturalWidth, img.naturalHeight),
-      );
-      const w = Math.round(img.naturalWidth * scale);
-      const h = Math.round(img.naturalHeight * scale);
-      const canvas = document.createElement("canvas");
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) {
-        resolve(src);
-        return;
-      }
-      ctx.drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL("image/jpeg", 0.85));
-    };
-    img.onerror = () => reject(new Error("image-load"));
-    img.src = src;
-  });
-}
-
-function readFileAsDataUrl(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(String(reader.result));
-    reader.onerror = () => reject(new Error("file-read"));
-    reader.readAsDataURL(file);
-  });
-}
 
 export default function Analyzer({ lang }: { lang: Lang }) {
   const t = UI[lang];

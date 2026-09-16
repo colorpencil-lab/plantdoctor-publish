@@ -2,15 +2,17 @@ import { NextResponse } from "next/server";
 import { analyzeImage, decodeImagePayload } from "@/lib/analyze";
 import { isLang } from "@/lib/i18n";
 import { checkFromAnalysis } from "@/lib/farm/ingest";
-import type { PlantCheck } from "@/lib/farm/model";
+import { addPhotoOutcome, resolveCurrentSessionId, SessionError } from "@/lib/farm/sessions";
+import { nowLocalIso, type PlantCheck } from "@/lib/farm/model";
 
 // Device endpoint. The field camera unit POSTs one plant photo per call:
 //
 //   { "unit": "R1C4", "image": "data:image/jpeg;base64,...", "lang": "zh" }
 //
-// The system analyses it and returns whether the plant is healthy, plus a
-// dashboard row when an illness is detected. Persistence is not wired yet —
-// this evaluates and returns; storing a scan session is the next step.
+// The system analyses it, records the outcome against the current
+// in-progress scan session (or an explicit "sessionId" in the body, if the
+// device ever needs to target one directly), and returns whether the plant
+// is healthy plus a dashboard row when an illness is detected.
 
 export const runtime = "nodejs";
 export const maxDuration = 120;
@@ -22,10 +24,12 @@ interface IngestBody {
   image?: string;
   mediaType?: string;
   lang?: string;
+  sessionId?: string;
 }
 
 interface IngestResponse {
   unit: string;
+  sessionId: string;
   healthy: boolean;
   check: PlantCheck | null;
 }
@@ -65,6 +69,13 @@ export async function POST(request: Request) {
     return jsonError("No image was provided.", 400);
   }
 
+  const sessionId =
+    (typeof body.sessionId === "string" && body.sessionId) ||
+    (await resolveCurrentSessionId());
+  if (!sessionId) {
+    return jsonError("No in-progress session — start one first.", 400);
+  }
+
   const decoded = decodeImagePayload(body.image, body.mediaType);
   if ("error" in decoded) return jsonError(decoded.error, 400);
 
@@ -72,11 +83,19 @@ export async function POST(request: Request) {
   const outcome = await analyzeImage(decoded.bytes, decoded.mediaType, lang);
   if (!outcome.ok) return jsonError(outcome.message, outcome.status);
 
-  const checkedAt = new Date().toISOString().slice(0, 19); // local-ish, no zone
+  const checkedAt = nowLocalIso();
   const check = checkFromAnalysis({ unit, row, col, checkedAt }, outcome.result);
+
+  try {
+    await addPhotoOutcome(sessionId, check);
+  } catch (e) {
+    if (e instanceof SessionError) return jsonError(e.message, e.status);
+    throw e;
+  }
 
   return NextResponse.json<IngestResponse>({
     unit,
+    sessionId,
     healthy: check === null,
     check,
   });

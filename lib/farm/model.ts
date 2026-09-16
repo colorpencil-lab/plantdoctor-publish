@@ -43,18 +43,26 @@ export interface PlantCheck {
   recovery: Recovery;
 }
 
+export type SessionStatus = "in_progress" | "completed";
+
 export interface ScanSession {
   id: string;
   /** ISO local time (no zone). */
   startedAt: string;
-  finishedAt: string;
+  /** Absent while the session is in progress. */
+  finishedAt?: string;
   plantsScanned: number;
   plantsHealthy: number;
   plantsFlagged: number;
-  rows: number;
-  cols: number;
   /** Only the plants that need attention. */
   checks: PlantCheck[];
+}
+
+/** Session fields without the (potentially long) checks list — for list views. */
+export type SessionSummary = Omit<ScanSession, "checks">;
+
+export function sessionStatus(s: Pick<ScanSession, "finishedAt">): SessionStatus {
+  return s.finishedAt ? "completed" : "in_progress";
 }
 
 export function text(b: Bilingual, lang: Lang): string {
@@ -133,14 +141,17 @@ export interface FarmStrings {
   colRecovery: string;
   empty: string;
   minutes: (m: number) => string;
-  awaitingDevice: string;
+  notFinished: string;
+  inProgressBanner: string;
+  toSessions: string;
 }
 
 export const FARM_UI: Record<Lang, FarmStrings> = {
   en: {
     title: "Farm scan",
-    subtitle: "Most recent full pass by the field camera unit.",
+    subtitle: "One farm walkthrough, device or manual.",
     back: "← Plant checker",
+    toSessions: "← All sessions",
     statScanned: "Plants scanned",
     statHealthy: "Healthy",
     statFlagged: "Needs attention",
@@ -158,13 +169,14 @@ export const FARM_UI: Record<Lang, FarmStrings> = {
     colRecovery: "Recovery",
     empty: "No plants match this filter.",
     minutes: (m) => `${m} min`,
-    awaitingDevice:
-      "Sample data. The camera unit is not connected yet — once it is, each pass will populate this list automatically.",
+    notFinished: "—",
+    inProgressBanner: "Scan in progress — upload photos as you go.",
   },
   zh: {
     title: "农场巡检",
-    subtitle: "田间摄像单元最近一次全场扫描结果。",
+    subtitle: "单次农场巡检，设备或手动均可。",
     back: "← 植物检测",
+    toSessions: "← 全部巡检",
     statScanned: "扫描植株",
     statHealthy: "健康",
     statFlagged: "需要处理",
@@ -182,8 +194,123 @@ export const FARM_UI: Record<Lang, FarmStrings> = {
     colRecovery: "康复可能",
     empty: "没有符合该筛选条件的植株。",
     minutes: (m) => `${m} 分钟`,
-    awaitingDevice:
-      "示例数据。摄像单元尚未接入 —— 接入后，每次巡检都会自动填充此列表。",
+    notFinished: "—",
+    inProgressBanner: "巡检进行中 —— 可随时上传照片。",
+  },
+};
+
+// ---- session list / lifecycle UI strings -----------------------------------
+
+export interface SessionListStrings {
+  title: string;
+  subtitle: string;
+  back: string;
+  newSession: string;
+  colStarted: string;
+  colFinished: string;
+  colStatus: string;
+  colDuration: string;
+  colScanned: string;
+  colFlagged: string;
+  statusInProgress: string;
+  statusCompleted: string;
+  empty: string;
+  notStarted: string;
+  minutes: (m: number) => string;
+
+  newDialogTitle: string;
+  startTimeLabel: string;
+  start: string;
+  cancel: string;
+  alreadyInProgress: string;
+
+  endSession: string;
+  endDialogTitle: string;
+  endTimeLabel: string;
+  end: string;
+
+  uploadTitle: string;
+  uploadHint: string;
+  uploading: string;
+  uploadResultHealthy: string;
+  uploadResultFlagged: (issue: string) => string;
+  uploadFailed: string;
+  liveInProgress: string;
+}
+
+export const SESSION_UI: Record<Lang, SessionListStrings> = {
+  en: {
+    title: "Scan sessions",
+    subtitle: "The last 10 farm walkthroughs, device or manual.",
+    back: "← Plant checker",
+    newSession: "New session",
+    colStarted: "Started",
+    colFinished: "Finished",
+    colStatus: "Status",
+    colDuration: "Duration",
+    colScanned: "Scanned",
+    colFlagged: "Flagged",
+    statusInProgress: "In progress",
+    statusCompleted: "Completed",
+    empty: "No sessions yet — start one to begin scanning.",
+    notStarted: "—",
+    minutes: (m) => `${m} min`,
+
+    newDialogTitle: "Start a new session",
+    startTimeLabel: "Start time",
+    start: "Start session",
+    cancel: "Cancel",
+    alreadyInProgress:
+      "A session is already in progress — end it before starting a new one.",
+
+    endSession: "End session",
+    endDialogTitle: "End this session",
+    endTimeLabel: "End time",
+    end: "End session",
+
+    uploadTitle: "Upload a plant photo",
+    uploadHint: "Each photo counts as one plant scanned.",
+    uploading: "Analysing…",
+    uploadResultHealthy: "Healthy",
+    uploadResultFlagged: (issue) => `Flagged: ${issue}`,
+    uploadFailed: "Upload failed. Please retry.",
+    liveInProgress: "Scan in progress — upload photos as you go.",
+  },
+  zh: {
+    title: "巡检记录",
+    subtitle: "最近 10 次农场巡检，设备或手动均在此列出。",
+    back: "← 植物检测",
+    newSession: "新建巡检",
+    colStarted: "开始时间",
+    colFinished: "结束时间",
+    colStatus: "状态",
+    colDuration: "耗时",
+    colScanned: "已扫描",
+    colFlagged: "需关注",
+    statusInProgress: "进行中",
+    statusCompleted: "已完成",
+    empty: "暂无巡检记录 —— 点击新建以开始扫描。",
+    notStarted: "—",
+    minutes: (m) => `${m} 分钟`,
+
+    newDialogTitle: "新建巡检",
+    startTimeLabel: "开始时间",
+    start: "开始巡检",
+    cancel: "取消",
+    alreadyInProgress: "已有一个巡检正在进行 —— 请先结束它，再新建。",
+
+    endSession: "结束巡检",
+    endDialogTitle: "结束此次巡检",
+    endTimeLabel: "结束时间",
+    end: "结束巡检",
+
+    uploadTitle: "上传植物照片",
+    uploadHint: "每张照片计为一次植株扫描。",
+    uploading: "分析中…",
+    uploadResultHealthy: "健康",
+    uploadResultFlagged: (issue) => `已标记：${issue}`,
+    uploadFailed: "上传失败，请重试。",
+    liveInProgress: "巡检进行中 —— 可随时上传照片。",
   },
 };
 
@@ -207,10 +334,16 @@ export function formatDateTime(iso: string, lang: Lang): string {
   return `${d.getDate()} ${MONTHS_EN[d.getMonth()]} ${d.getFullYear()}, ${hm}`;
 }
 
-export function durationMinutes(startIso: string, endIso: string): number {
+export function durationMinutes(startIso: string, endIso?: string): number | null {
+  if (!endIso) return null;
   return Math.round(
     (new Date(endIso).getTime() - new Date(startIso).getTime()) / 60000,
   );
+}
+
+/** "Now", in the same ISO-local-no-zone convention used throughout this module. */
+export function nowLocalIso(): string {
+  return new Date().toISOString().slice(0, 19);
 }
 
 /** Grouped with a fixed locale so SSR and client agree. */
