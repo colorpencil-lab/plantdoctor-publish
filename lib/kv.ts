@@ -154,7 +154,14 @@ export function getStore(): Store {
   if (url && token) {
     // Lazy require so the SDK never loads when it isn't configured.
     const { Redis } = require("@upstash/redis") as typeof import("@upstash/redis");
-    store = new RedisStore(new Redis({ url, token }));
+    // Upstash auto-JSON-parses string values that look like JSON by default
+    // (e.g. our own JSON.stringify'd PlantCheck rows), which double-parses
+    // against the manual JSON.parse in lib/farm/sessions.ts and throws once
+    // a session has a flagged check. Disabling it makes RedisStore behave
+    // like FileStore: raw strings in and out, one JSON layer, ours.
+    store = new RedisStore(
+      new Redis({ url, token, automaticDeserialization: false }),
+    );
   } else {
     const path = require("node:path").join(process.cwd(), ".plantdoctor-dev-kv.json");
     console.warn(
