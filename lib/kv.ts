@@ -162,6 +162,17 @@ export function getStore(): Store {
     store = new RedisStore(
       new Redis({ url, token, automaticDeserialization: false }),
     );
+  } else if (process.env.VERCEL) {
+    // Running on Vercel with no Redis configured: the file-backed fallback
+    // below writes to a throwaway per-invocation filesystem there — every
+    // "successful" write vanishes by the next request, which looks like
+    // silent data loss rather than a clear error. Fail loudly instead.
+    throw new Error(
+      "[kv] No Redis configured in this deployment (KV_REST_API_URL/TOKEN or " +
+        "UPSTASH_REDIS_REST_URL/TOKEN are not set). Connect Upstash Redis from " +
+        "this project's Storage tab on vercel.com, then redeploy — session " +
+        "data cannot persist on Vercel without it.",
+    );
   } else {
     const path = require("node:path").join(process.cwd(), ".plantdoctor-dev-kv.json");
     console.warn(
