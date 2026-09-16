@@ -32,6 +32,11 @@ export default function PlantCheckDetail({
           {check.unit} · {formatDateTime(check.checkedAt, lang)}
         </p>
 
+        {check.photoUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className="preview-img" src={check.photoUrl} alt={text(check.plant, lang)} />
+        )}
+
         <div className="issue-chips">
           <span className="chip chip-neutral">{CATEGORY_LABEL[lang][check.category]}</span>
           <span className={`chip chip-${SEVERITY_TONE[check.severity]}`}>
