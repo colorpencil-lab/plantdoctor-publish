@@ -73,6 +73,9 @@ export async function endSession(id: string, finishedAt?: string): Promise<ScanS
   if (meta.finishedAt) throw new SessionError("Session is already finished.", 409);
 
   const finished = finishedAt || nowLocalIso();
+  if (Date.parse(finished) <= Date.parse(meta.startedAt)) {
+    throw new SessionError("End time must be after the start time.", 422);
+  }
   await store.hSet(metaKey(id), { finishedAt: finished });
   const current = await store.get(CURRENT_KEY);
   if (current === id) await store.del(CURRENT_KEY);

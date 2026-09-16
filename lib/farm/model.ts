@@ -231,6 +231,7 @@ export interface SessionListStrings {
   endDialogTitle: string;
   endTimeLabel: string;
   end: string;
+  endBeforeStart: string;
 
   uploadTitle: string;
   uploadHint: string;
@@ -270,6 +271,7 @@ export const SESSION_UI: Record<Lang, SessionListStrings> = {
     endDialogTitle: "End this session",
     endTimeLabel: "End time",
     end: "End session",
+    endBeforeStart: "End time must be after the start time.",
 
     uploadTitle: "Upload a plant photo",
     uploadHint: "Each photo counts as one plant scanned.",
@@ -306,6 +308,7 @@ export const SESSION_UI: Record<Lang, SessionListStrings> = {
     endDialogTitle: "结束此次巡检",
     endTimeLabel: "结束时间",
     end: "结束巡检",
+    endBeforeStart: "结束时间必须晚于开始时间。",
 
     uploadTitle: "上传植物照片",
     uploadHint: "每张照片计为一次植株扫描。",
@@ -319,22 +322,16 @@ export const SESSION_UI: Record<Lang, SessionListStrings> = {
 
 // ---- formatting ----------------------------------------------------------
 
-const MONTHS_EN = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-];
-
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /** ISO local strings are parsed as wall-clock, so this renders the same on
- *  server and client regardless of time zone (no hydration mismatch). */
-export function formatDateTime(iso: string, lang: Lang): string {
+ *  server and client regardless of time zone (no hydration mismatch).
+ *  Same "yyyy-mm-dd HH:mm" shape in both languages — only the surrounding
+ *  UI text differs between en/zh, not the date format itself. */
+export function formatDateTime(iso: string, _lang: Lang): string {
   const d = new Date(iso);
   const hm = `${pad(d.getHours())}:${pad(d.getMinutes())}`;
-  if (lang === "zh") {
-    return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日 ${hm}`;
-  }
-  return `${d.getDate()} ${MONTHS_EN[d.getMonth()]} ${d.getFullYear()}, ${hm}`;
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${hm}`;
 }
 
 export function durationMinutes(startIso: string, endIso?: string): number | null {
