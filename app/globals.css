@@ -991,9 +991,37 @@ body {
 .dialog {
   width: 100%;
   max-width: 380px;
+  max-height: 90vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+}
+
+.dialog-wide {
+  max-width: 640px;
+}
+
+.plant-detail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .plant-detail-grid {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .plant-detail-photo {
+    width: 240px;
+    flex: 0 0 240px;
+    max-height: 300px;
+  }
+  .plant-detail-text {
+    flex: 1;
+    min-width: 0;
+  }
 }
 
 .dialog-field {
