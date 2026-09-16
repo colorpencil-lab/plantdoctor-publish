@@ -154,14 +154,14 @@ export function getStore(): Store {
   if (url && token) {
     // Lazy require so the SDK never loads when it isn't configured.
     const { Redis } = require("@upstash/redis") as typeof import("@upstash/redis");
-    // Upstash auto-JSON-parses string values that look like JSON by default
-    // (e.g. our own JSON.stringify'd PlantCheck rows), which double-parses
-    // against the manual JSON.parse in lib/farm/sessions.ts and throws once
-    // a session has a flagged check. Disabling it makes RedisStore behave
-    // like FileStore: raw strings in and out, one JSON layer, ours.
-    store = new RedisStore(
-      new Redis({ url, token, automaticDeserialization: false }),
-    );
+    // Keep Upstash's default automaticDeserialization ON — HGETALL relies on
+    // it to turn Redis's flat [field, value, ...] reply into a real object;
+    // disabling it broke that structurally (every hGetAll looked empty), not
+    // just the "double JSON parse" behavior it was meant to fix. The list
+    // (checks) double-parse case is instead handled defensively where we
+    // consume it, in lib/farm/sessions.ts — it tolerates a value the client
+    // already auto-parsed into an object as well as a raw JSON string.
+    store = new RedisStore(new Redis({ url, token }));
   } else if (process.env.VERCEL) {
     // Running on Vercel with no Redis configured: the file-backed fallback
     // below writes to a throwaway per-invocation filesystem there — every
