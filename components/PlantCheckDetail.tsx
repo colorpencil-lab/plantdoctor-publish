@@ -26,29 +26,37 @@ export default function PlantCheckDetail({
 
   return (
     <div className="dialog-overlay" role="dialog" aria-modal="true" onClick={onClose}>
-      <div className="dialog card" onClick={(e) => e.stopPropagation()}>
+      <div className="dialog dialog-wide card" onClick={(e) => e.stopPropagation()}>
         <h2 className="section-title">{text(check.plant, lang)}</h2>
         <p className="muted">
           {check.unit} · {formatDateTime(check.checkedAt, lang)}
         </p>
 
-        {check.photoUrl && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img className="preview-img" src={check.photoUrl} alt={text(check.plant, lang)} />
-        )}
+        <div className="plant-detail-grid">
+          {check.photoUrl && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              className="preview-img plant-detail-photo"
+              src={check.photoUrl}
+              alt={text(check.plant, lang)}
+            />
+          )}
 
-        <div className="issue-chips">
-          <span className="chip chip-neutral">{CATEGORY_LABEL[lang][check.category]}</span>
-          <span className={`chip chip-${SEVERITY_TONE[check.severity]}`}>
-            {SEVERITY_LABEL[lang][check.severity]}
-          </span>
-          <span className={`chip chip-${RECOVERY_TONE[check.recovery]}`}>
-            {RECOVERY_LABEL[lang][check.recovery]}
-          </span>
+          <div className="plant-detail-text">
+            <div className="issue-chips">
+              <span className="chip chip-neutral">{CATEGORY_LABEL[lang][check.category]}</span>
+              <span className={`chip chip-${SEVERITY_TONE[check.severity]}`}>
+                {SEVERITY_LABEL[lang][check.severity]}
+              </span>
+              <span className={`chip chip-${RECOVERY_TONE[check.recovery]}`}>
+                {RECOVERY_LABEL[lang][check.recovery]}
+              </span>
+            </div>
+
+            <p className="issue-title">{text(check.issueTitle, lang)}</p>
+            <p>{text(check.issueSummary, lang)}</p>
+          </div>
         </div>
-
-        <p className="issue-title">{text(check.issueTitle, lang)}</p>
-        <p>{text(check.issueSummary, lang)}</p>
 
         <div className="button-row">
           <button className="btn btn-ghost" onClick={onClose}>
